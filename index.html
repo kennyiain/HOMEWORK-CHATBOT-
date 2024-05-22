@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chatbot UI</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="chat-container">
+            <div class="chat-box" id="chat-box"></div>
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+<script>
+
+    function sendMessage() {
+        let userInput = document.getElementById("user-input").value;
+        appendMessage("You: " + userInput);
+        document.getElementById("user-input").value = "";
+
+        let botResponse = chatbotResponse(userInput);
+        appendMessage("Bot: " + botResponse);
+    }
+
+    function appendMessage(message) {
+        let chatBox = document.getElementById("chat-box");
+        let messageElement = document.createElement("div");
+        messageElement.innerText = message;
+        chatBox.appendChild(messageElement);
+    }
+
+    function chatbotResponse(userInput) {
+        return "I'm sorry, could you repeat that?";
+    }
+    window.onload = function() {
+        alert("Hello! Welcome to the Chatbot!");
+    };
+
+
+
+    
+</script>
